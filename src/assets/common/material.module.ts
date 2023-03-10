@@ -7,6 +7,7 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule  } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
+import { MatDialogModule  } from "@angular/material/dialog";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { MatSelectModule } from "@angular/material/select";
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        MatDialogModule
     ],
     exports: [
         MatTableModule,
@@ -27,7 +29,8 @@ import { MatSelectModule } from "@angular/material/select";
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        MatDialogModule
     ],
     declarations: []
 })

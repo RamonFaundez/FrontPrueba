@@ -10,8 +10,7 @@ import { UsersComponent } from './users/users.component';
 import { AccessComponent } from './access/access.component';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { LoginComponent } from './login/login.component';
-
-
+import { FormDialogComponent } from './shared/form-dialog/form-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +21,12 @@ import { LoginComponent } from './login/login.component';
     AccessComponent,
     PermissionsComponent,
     LoginComponent,
+    FormDialogComponent,
   ],
   imports: [
     CustomModule,
     CustomMaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
