@@ -1,0 +1,47 @@
+<div class="mat-elevation-z8 container">
+  <h1>Listado de usuarios</h1>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="role">
+      <th mat-header-cell *matHeaderCellDef>Rol</th>
+      <td mat-cell *matCellDef="let user">{{ user.permissionId }}</td>
+    </ng-container>
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef>Fecha de creaci&oacute;n</th>
+      <td mat-cell *matCellDef="let user">{{ user.createdAt }}</td>
+    </ng-container>
+    <ng-container matColumnDef="updatedAt">
+      <th mat-header-cell *matHeaderCellDef>Fecha de actualizaci&oacute;n</th>
+      <td mat-cell *matCellDef="let user">{{ user.updatedAt }}</td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let user">
+        <!--TODO Abrir dialogForm-->
+        <button type="button" mat-mini-fab color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button type="button" mat-mini-fab color="warn" (click)="onClickDelete(user.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[5]"
+    aria-label="Select page of users"
+  >
+  </mat-paginator>
+  <div class="actions">
+      <button mat-raised-button color="primary" (click)="openDialogForm()">Agregar Usuario</button>
+      <button mat-raised-button color="accent" routerLink="/">Volver</button>
+   </div>
+</div>

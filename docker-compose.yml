@@ -1,0 +1,11 @@
+version: '1'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: angularjs
+    container_name: angular
+    ports:
+      - 4200:4200
+    restart: always
