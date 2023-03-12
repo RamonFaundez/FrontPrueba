@@ -1,11 +1,11 @@
-import { IPermission } from './../../assets/interfaces/interfaces';
-import { FormDialogComponent } from './../shared/form-dialog/form-dialog.component';
+import { FormDialogCreateComponent } from '../shared/form-dialog-create/form-dialog-create.component';
+import { FormDialogEditComponent } from '../shared/form-dialog-edit/form-dialog-edit.component';
 import { ApiService } from './../services/api.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from "@angular/material/table";
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
-import { IUser } from '../../assets/interfaces/interfaces';
+import { IUser, IPermission } from '../../assets/interfaces/interfaces';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +15,7 @@ import { IUser } from '../../assets/interfaces/interfaces';
 export class UsersComponent implements OnInit {
   public usersList: IUser[] = [];
   private roleList: IPermission[] = [];
-  public displayedColumns: string[] = ['name', 'role', 'createdAt', 'updatedAt', 'actions'];
+  public displayedColumns: string[] = ['name', 'email', 'role', 'createdAt', 'updatedAt', 'actions'];
   public dataSource!: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -68,21 +68,46 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  public openDialogForm() {
-    const dialogRef = this.matDialog.open(FormDialogComponent, {
+  public openDialogFormCreate() {
+    const dialogRef = this.matDialog.open(FormDialogCreateComponent, {
+      disableClose: true,
       panelClass: 'dialog',
-      width: '400px',
-      height: '400px',
+      width: '450px',
+      height: '600px',
       position: {
         bottom: ''
       },
-      data: {status:''}
+      data: { status: '' }
     });
 
     dialogRef.afterClosed().subscribe(res => {
-      if(res === 'OK'){
+      if (res === 'OK') {
         this.getAllUsers();
       }
     })
+  }
+
+  public openDialogFormEdit(userId: string) {
+    const dialogRef = this.matDialog.open(FormDialogEditComponent, {
+      disableClose: true,
+      panelClass: 'dialog',
+      width: '450px',
+      height: '600px',
+      position: {
+        bottom: ''
+      },
+      data: { userId: userId }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if (res === 'OK') {
+        this.getAllUsers();
+      }
+    })
+  }
+
+  public timestampToDate(timestamp: number) {
+    return new Date(timestamp * 1000).toLocaleString("en-CL", { timeZone: "America/Santiago" });
+
   }
 }
