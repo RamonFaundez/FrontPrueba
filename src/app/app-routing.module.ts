@@ -1,4 +1,3 @@
-import { LoginComponent } from './login/login.component';
 import { PermissionsComponent } from './permissions/permissions.component';
 import { AccessComponent } from './access/access.component';
 import { UsersComponent } from './users/users.component';
@@ -21,11 +20,6 @@ const routes: Routes = [
   {
     path: 'access',
     component: AccessComponent,
-    pathMatch: 'full'
-  },
-  {
-    path:'login',
-    component: LoginComponent,
     pathMatch: 'full'
   },
   {

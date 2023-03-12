@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>Editar Usuario</h2>
+  <form [formGroup]="formEdit">
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input formControlName="name" matInput type="text" placeholder="Nombre" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input
+        type="email"
+        formControlName="email"
+        matInput
+        placeholder="E-mail"
+      />
+      <mat-error *ngIf="formEdit.get('email')?.getError('email')"
+        >El mail debe tener el formato correcto</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input
+        formControlName="password"
+        matInput
+        type="password"
+        placeholder="Contraseña"
+      />
+      <mat-error *ngIf="formEdit.get('password')"
+        >La contraseña debe tener por lo mínimo de 8 caracteres</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Rol</mat-label>
+      <mat-select formControlName="permission">
+        <mat-option
+          *ngFor="let permission of permissionList"
+          [value]="permission.id"
+          >{{ permission.role }}</mat-option
+        >
+      </mat-select>
+      <mat-error *ngIf="formEdit.get('permission')?.getError('required')"
+        >Debes seleccionar un rol</mat-error
+      >
+    </mat-form-field>
+    <button mat-button type="submit" (click)="onSubmit()">
+      Aceptar
+      <mat-icon>done</mat-icon>
+    </button>
+    <button mat-button type="button" matDialogClose>
+      Cancelar
+      <mat-icon>close</mat-icon>
+    </button>
+  </form>
+</div>

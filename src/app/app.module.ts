@@ -9,8 +9,10 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { AccessComponent } from './access/access.component';
 import { PermissionsComponent } from './permissions/permissions.component';
-import { LoginComponent } from './login/login.component';
-import { FormDialogComponent } from './shared/form-dialog/form-dialog.component';
+import { FormDialogLoginComponent } from './shared/form-dialog-login/form-dialog-login.component';
+import { FormDialogCreateComponent } from './shared/form-dialog-create/form-dialog-create.component';
+import { FormDialogEditComponent } from './shared/form-dialog-edit/form-dialog-edit.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import { FormDialogComponent } from './shared/form-dialog/form-dialog.component'
     UsersComponent,
     AccessComponent,
     PermissionsComponent,
-    LoginComponent,
-    FormDialogComponent,
+    FormDialogLoginComponent,
+    FormDialogCreateComponent,
+    FormDialogEditComponent,
+    NavbarComponent,
   ],
   imports: [
     CustomModule,

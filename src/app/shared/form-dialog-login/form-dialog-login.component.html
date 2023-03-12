@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Ingreso</h1>
+
+  <button mat-icon-button matDialogClose type="button">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <form [formGroup]="formLogin">
+    <mat-form-field appearance="fill">
+      <mat-label>Correo electrónico</mat-label>
+      <input
+        formControlName="email"
+        matInput
+        type="email"
+        placeholder="Ej.ejemplo@ejemplo.cl"
+      />
+      <mat-error *ngIf="formLogin.get('email')?.hasError('required')"
+        >Este campo es requerido</mat-error
+      >
+      <mat-error *ngIf="formLogin.get('email')?.hasError('email')"
+        >Este campo debe tener el formato correcto</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Contraseña</mat-label>
+      <input
+        formControlName="password"
+        matInput
+        type="password"
+        placeholder="Contraseña"
+      />
+      <mat-error *ngIf="formLogin.get('password')?.hasError('required')"
+        >Este campo es requerido</mat-error
+      >
+    </mat-form-field>
+    <!--TODO agregar API validación login-->
+    <button
+      mat-button
+      type="submit"
+      (click)="onSubmit()"
+      [disabled]="formLogin.invalid"
+    >
+      Ingresar
+      <mat-icon>done</mat-icon>
+    </button>
+  </form>
+
+  <p>¿No tienes usuario?</p>
+  <button mat-button (click)="openDialogFormCreate()">
+    Registrate aquí
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</div>
