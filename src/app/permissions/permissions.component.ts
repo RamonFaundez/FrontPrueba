@@ -10,8 +10,8 @@ import { ApiService } from '../services/api.service';
 })
 export class PermissionsComponent implements OnInit {
 
-  public roleList!: Array<IPermission>;
-  public displayedColumns: Array<string> = ['role','usersTable', 'permissionsTable', 'logsTable']
+  private roleList!: Array<IPermission>;
+  public displayedColumns: Array<string> = ['role', 'usersTable', 'permissionsTable', 'logsTable']
   public dataSource!: any;
 
   constructor(

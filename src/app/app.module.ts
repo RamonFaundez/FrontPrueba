@@ -1,3 +1,4 @@
+import { TimestampToDatePipe } from './../assets/pipes/timestampToDate.pipe';
 import { CustomMaterialModule } from './../assets/common/material.module';
 import { CustomModule } from './../assets/common/custom.module';
 import { NgModule } from '@angular/core';
@@ -26,6 +27,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     FormDialogCreateComponent,
     FormDialogEditComponent,
     NavbarComponent,
+    TimestampToDatePipe
   ],
   imports: [
     CustomModule,

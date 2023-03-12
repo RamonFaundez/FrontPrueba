@@ -1,5 +1,28 @@
 <h1>Lista de accesos</h1>
 
-<button mat-button routerLink="/">volver
-    <mat-icon>arrow_back_ios</mat-icon>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let access">{{ access.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let access">{{ access.user }}</td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Correo electrónico</th>
+    <td mat-cell *matCellDef="let access">{{ access.email }}</td>
+  </ng-container>
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef>Fecha Acceso</th>
+    <td mat-cell *matCellDef="let access">{{ access.timestamp | timestampToDate}}</td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5]" *ngIf="dataSource"></mat-paginator>
+
+<button mat-button routerLink="/">
+  volver
+  <mat-icon>arrow_back_ios</mat-icon>
 </button>

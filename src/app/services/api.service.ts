@@ -18,9 +18,9 @@ export class ApiService {
     return this.http.get<{ status: string, data: IUser[] }>(url);
   }
 
-  public getUser(userId: string): Observable<IUser> {
+  public getUser(userId: string): Observable<{ status: string, data: IUser }> {
     const url = `${URL.ENDPOINT}/${userId}`;
-    return this.http.get<IUser>(url);
+    return this.http.get<{ status: string, data: IUser }>(url);
   }
 
   public addUser(body: IUserBody): Observable<{ status: string, data: IUser }> {
