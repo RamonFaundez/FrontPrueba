@@ -1,6 +1,11 @@
-<div class="container">
+<div class="dialog-wrapper">
   <h2>Editar Usuario</h2>
-  <form [formGroup]="formEdit">
+
+  <button mat-icon-button matDialogClose type="button" class="btn-close">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <form [formGroup]="formEdit" class="mat-elevation-z8">
     <mat-form-field appearance="fill">
       <mat-label>Nombre</mat-label>
       <input formControlName="name" matInput type="text" placeholder="Nombre" />
@@ -42,13 +47,20 @@
         >Debes seleccionar un rol</mat-error
       >
     </mat-form-field>
-    <button mat-raised-button type="submit" (click)="onSubmit()" color="accent">
-      Aceptar
-      <mat-icon>done</mat-icon>
-    </button>
-    <button mat-raised-button type="button" matDialogClose color="warn">
-      Cancelar
-      <mat-icon>close</mat-icon>
-    </button>
+    <div>
+      <button
+        mat-raised-button
+        type="submit"
+        (click)="onSubmit()"
+        color="accent"
+      >
+        Aceptar
+        <mat-icon>done</mat-icon>
+      </button>
+      <button mat-raised-button type="button" matDialogClose color="warn">
+        Cancelar
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
   </form>
 </div>

@@ -1,6 +1,7 @@
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { IPermission } from '../../assets/interfaces/interfaces';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -14,6 +15,8 @@ export class PermissionsComponent implements OnInit {
   public displayedColumns: Array<string> = ['role', 'usersTable', 'permissionsTable', 'logsTable']
   public dataSource!: any;
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(
     private apiService: ApiService
   ) { }
@@ -25,6 +28,7 @@ export class PermissionsComponent implements OnInit {
   private getAllPermissions(): void {
     this.apiService.getAllPermissions().subscribe(res => {
       this.dataSource = new MatTableDataSource<IPermission>(res.data);
+      this.dataSource.paginator = this.paginator;
     })
   }
 

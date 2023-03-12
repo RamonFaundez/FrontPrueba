@@ -1,11 +1,11 @@
-<div class="container">
+<div class="dialog-wrapper">
   <h1>Ingreso</h1>
 
-  <button mat-icon-button matDialogClose type="button">
+  <button mat-icon-button matDialogClose type="button" class="btn-close">
     <mat-icon>close</mat-icon>
   </button>
 
-  <form [formGroup]="formLogin">
+  <form [formGroup]="formLogin" class="mat-elevation-z8">
     <mat-form-field appearance="fill">
       <mat-label>Correo electrónico</mat-label>
       <input
@@ -46,9 +46,11 @@
     </button>
   </form>
 
-  <p>¿No tienes usuario?</p>
-  <button mat-raised-button (click)="openDialogFormCreate()" color="primary">
-    Registrate aquí
-    <mat-icon>account_circle</mat-icon>
-  </button>
+  <div class="register">
+    <span>¿No tienes usuario?</span>
+    <button mat-button (click)="openDialogFormCreate()" color="accent">
+      Registrate aquí
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
 </div>

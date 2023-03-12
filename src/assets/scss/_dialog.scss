@@ -1,0 +1,31 @@
+.dialog-wrapper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    padding: 38px 0;
+    border-radius: 8px;
+
+        .mdc-button{
+            width: 160px;
+            height: 50px;
+            margin: 0 4px;
+        }
+    }
+
+    .btn-close{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    }
+
+}
