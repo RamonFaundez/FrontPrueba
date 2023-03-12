@@ -55,11 +55,11 @@
   <mat-paginator [pageSizeOptions]="[5]">
   </mat-paginator>
   <div class="actions">
-    <button mat-button routerLink="/">
-      Volver
+    <button mat-raised-button routerLink="/" color="primary">
+      Volver al inicio
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
-    <button mat-button (click)="openDialogFormCreate()">
+    <button mat-raised-button (click)="openDialogFormCreate()" color="accent">
       Agregar Usuario
       <mat-icon>person_add</mat-icon>
     </button>
