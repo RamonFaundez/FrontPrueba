@@ -34,11 +34,20 @@
       >
     </mat-form-field>
     <!--TODO agregar API validación login-->
-    <button mat-raised-button type="submit" (click)="onSubmit()">
+    <button
+      mat-button
+      type="submit"
+      (click)="onSubmit()"
+      [disabled]="formLogin.invalid"
+    >
       Ingresar
+      <mat-icon>done</mat-icon>
     </button>
   </form>
 
   <p>¿No tienes usuario?</p>
-  <a mat-button (click)="openDialogFormCreate()">registrate aquí</a>
+  <button mat-button (click)="openDialogFormCreate()">
+    Registrate aquí
+    <mat-icon>account_circle</mat-icon>
+  </button>
 </div>

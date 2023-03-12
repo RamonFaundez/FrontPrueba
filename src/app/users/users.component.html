@@ -55,12 +55,13 @@
   <mat-paginator [pageSizeOptions]="[5]" aria-label="Select page of users">
   </mat-paginator>
   <div class="actions">
-    <button mat-raised-button routerLink="/">
+    <button mat-button routerLink="/">
       Volver
       <mat-icon>arrow_back_ios</mat-icon>
     </button>
-    <button mat-raised-button (click)="openDialogFormCreate()">
+    <button mat-button (click)="openDialogFormCreate()">
       Agregar Usuario
+      <mat-icon>person_add</mat-icon>
     </button>
   </div>
 </div>
