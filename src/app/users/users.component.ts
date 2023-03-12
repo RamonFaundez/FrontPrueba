@@ -105,9 +105,4 @@ export class UsersComponent implements OnInit {
       }
     })
   }
-
-  public timestampToDate(timestamp: number) {
-    return new Date(timestamp * 1000).toLocaleString("en-CL", { timeZone: "America/Santiago" });
-
-  }
 }

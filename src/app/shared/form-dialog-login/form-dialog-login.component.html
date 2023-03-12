@@ -1,11 +1,11 @@
-<div class="container">
+<div class="dialog-wrapper">
   <h1>Ingreso</h1>
 
-  <button mat-icon-button matDialogClose type="button">
+  <button mat-icon-button matDialogClose type="button" class="btn-close">
     <mat-icon>close</mat-icon>
   </button>
 
-  <form [formGroup]="formLogin">
+  <form [formGroup]="formLogin" class="mat-elevation-z8">
     <mat-form-field appearance="fill">
       <mat-label>Correo electrónico</mat-label>
       <input
@@ -35,19 +35,22 @@
     </mat-form-field>
     <!--TODO agregar API validación login-->
     <button
-      mat-button
+      mat-fab extended
       type="submit"
       (click)="onSubmit()"
       [disabled]="formLogin.invalid"
+      color="accent"
     >
       Ingresar
       <mat-icon>done</mat-icon>
     </button>
   </form>
 
-  <p>¿No tienes usuario?</p>
-  <button mat-button (click)="openDialogFormCreate()">
-    Registrate aquí
-    <mat-icon>account_circle</mat-icon>
-  </button>
+  <div class="register">
+    <span>¿No tienes usuario?</span>
+    <button mat-fab extended (click)="openDialogFormCreate()" color="accent">
+      Registrate aquí
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </div>
 </div>
