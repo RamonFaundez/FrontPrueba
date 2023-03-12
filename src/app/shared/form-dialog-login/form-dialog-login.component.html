@@ -35,7 +35,7 @@
     </mat-form-field>
     <!--TODO agregar API validación login-->
     <button
-      mat-raised-button
+      mat-fab extended
       type="submit"
       (click)="onSubmit()"
       [disabled]="formLogin.invalid"
@@ -48,7 +48,7 @@
 
   <div class="register">
     <span>¿No tienes usuario?</span>
-    <button mat-button (click)="openDialogFormCreate()" color="accent">
+    <button mat-fab extended (click)="openDialogFormCreate()" color="accent">
       Registrate aquí
       <mat-icon>account_circle</mat-icon>
     </button>

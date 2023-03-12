@@ -1,20 +1,29 @@
 <mat-toolbar class="mat-primary mat-elevation-z8">
   <div>
-    <button mat-button routerLink="users">
-      Lista de usuarios
+    <button color="primary" mat-flat-button routerLink="/">
+      <mat-icon> home </mat-icon> Inicio
+    </button>
+    <button color="primary" mat-flat-button routerLink="users">
       <mat-icon>group</mat-icon>
+      Lista de usuarios
     </button>
-    <button mat-button routerLink="permissions">
-      Lista de permisos
+    <button color="primary" mat-flat-button routerLink="permissions">
       <mat-icon>manage_accounts</mat-icon>
+      Lista de permisos
     </button>
-    <button mat-button routerLink="access">
+    <button color="primary" mat-flat-button routerLink="access">
       Lista de accesos
       <mat-icon>app_registration</mat-icon>
     </button>
   </div>
-  <button mat-button type="button" (click)="openDialogFormLogin()">
-    Iniciar sesión
+  <button
+    mat-fab
+    extended
+    type="button"
+    color="accent"
+    (click)="openDialogFormLogin()"
+  >
     <mat-icon>login</mat-icon>
+    Iniciar sesión
   </button>
 </mat-toolbar>
