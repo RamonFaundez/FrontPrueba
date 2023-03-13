@@ -1,6 +1,10 @@
-import { FormDialogCreateComponent } from './../form-dialog-create/form-dialog-create.component';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { IUser } from '../../../assets/interfaces/interfaces';
+import { ApiService } from '../../services/api.service';
+import { FormDialogCreateComponent } from '../form-dialog-create/form-dialog-create.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
@@ -10,10 +14,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class FormDialogLoginComponent implements OnInit {
   public formLogin!: FormGroup;
+  private dataResponse!: IUser;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<FormDialogLoginComponent>,
     private matDialog: MatDialog,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -31,7 +39,19 @@ export class FormDialogLoginComponent implements OnInit {
     if (this.formLogin.invalid) {
       return;
     }
-    console.log('obteniendo DATA')
+    const values = this.formLogin.value;
+    const body = {
+      email: values.email,
+      password: values.password
+    }
+
+    this.apiService.checkLogin(body).subscribe(res => {
+      this.dataResponse = res.data;
+    }, err => {
+      console.error(err);
+    }, () => {
+      this.dialogRef.close(this.dataResponse);
+    })
   }
 
   public openDialogFormCreate() {
@@ -49,7 +69,7 @@ export class FormDialogLoginComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(res => {
-      console.log('Issue TODO')
+      this.matDialog.closeAll()
     });
   }
 }

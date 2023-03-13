@@ -22,8 +22,8 @@ export interface IPermission {
 }
 
 export interface ILogBody {
-  userId: string;
-  permissionId: string;
+  email: string;
+  password: string;
 }
 
 export interface IUserBody {

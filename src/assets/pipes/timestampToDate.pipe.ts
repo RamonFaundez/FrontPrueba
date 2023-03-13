@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TimestampToDatePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-      return new Date(value * 1000).toLocaleString("es-CL", { timeZone: "America/Santiago" });
+    return new Date(value*1000).toLocaleString("en-CL", { timeZone: "America/Santiago" });
   }
 
 }
