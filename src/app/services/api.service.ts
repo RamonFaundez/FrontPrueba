@@ -48,9 +48,9 @@ export class ApiService {
     return this.http.get<{ status: string, data: ILog[] }>(url);
   }
 
-  public addLog(body: ILogBody): Observable<{ status: string, data: ILog }> {
-    const url = `${URL.ENDPOINT}/logs`;
-    return this.http.post<{ status: string, data: ILog }>(url, body);
+  public checkLogin(body: ILogBody): Observable<{ status: string, data: IUser }> {
+    const url = `${URL.ENDPOINT}/login`;
+    return this.http.post<{ status: string, data: IUser }>(url, body);
   }
 
   public getAllPermissions(): Observable<{ status: string, data: IPermission[] }> {
